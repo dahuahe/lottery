@@ -9,19 +9,27 @@
 const prizes = [
   {
     type: -1,
-    count: 1,
-    title: "",
-    text: "特别奖",
+    count: 9999,
+    title: "奖品",
+    text: "奖品",
+    all:true,
     img: ""
   },
   {
-    type: 654,
-    count: 1,
-    title: "",
-    text: "IPHONE 14 PRO MAX",
-    img: "../img/111.jpg"
+    type: 777,
+    count: 4,
+    title: "奖品",
+    text: "奖品",
+    img: ""
   },
-  
+  {
+    type: 1,
+    count: 1,
+    title:"",
+    yq:true,
+    text: "戴森吸尘器V10",
+    img: "../img/戴森吸尘器.png"
+  },
   {
     type: 2,
     count: 1,
@@ -43,13 +51,7 @@ const prizes = [
     text: "微软游戏机Xbox Series S",
     img: "../img/微软游戏机Xbox Series S.jpg"
   },
-  {
-    type: 5,
-    count: 1,
-    title:"",
-    text: "星特朗天文望远镜80DX",
-    img: "../img/星特朗天文望远镜80DX.jpg"
-  },
+  
   {
     type: 6,
     count: 1,
@@ -58,11 +60,26 @@ const prizes = [
     img: "../img/MAC口红31.jpg"
   },
   {
+    type: 654,
+    count: 1,
+    title: "",
+    yq:true,
+    text: "IPHONE 14 PRO MAX",
+    img: "../img/111.jpg"
+  },
+  {
     type: 7,
     count: 1,
     title:"",
     text: "华为智能手表",
     img: "../img/华为智能手表.jpg"
+  },
+  {
+    type: 5,
+    count: 1,
+    title:"",
+    text: "星特朗天文望远镜80DX",
+    img: "../img/星特朗天文望远镜80DX.jpg"
   },
   {
     type: 8,
@@ -79,18 +96,11 @@ const prizes = [
     img: "../img/柏翠咖啡机.jpg"
   },
   {
-    type: 10,
+    type: 10,// 毛总必中
     count: 1,
     title:"",
     text: "阿迪达斯足球2022卡塔尔世界杯",
     img: "../img/阿迪达斯足球2022卡塔尔世界杯.jpg"
-  },
-  {
-    type: 1,
-    count: 1,
-    title:"",
-    text: "戴森吸尘器V10",
-    img: "../img/戴森吸尘器.png"
   },
   {
     type: 11,
@@ -98,13 +108,6 @@ const prizes = [
     title:"",
     text: "富安娜长绒棉四件套",
     img: "../img/富安娜长绒棉四件套.jpg"
-  },
-  {
-    type: 12,
-    count: 1,
-    title:"",
-    text: "索密斯多功能早餐机",
-    img: "../img/索密斯多功能早餐机.png"
   },
   {
     type: 13,
@@ -139,7 +142,7 @@ const prizes = [
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+const EACH_COUNT = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 
 /**
  * 卡片公司名称标识

@@ -80,12 +80,12 @@ function initAll() {
       basicData.leftUsers = data.leftUsers;
       basicData.luckyUsers = data.luckyData;
 
-      let prizeIndex = basicData.prizes.length - 1;
-      for (; prizeIndex > -1; prizeIndex--) {
+      for (let prizeIndex = basicData.prizes.length - 1; prizeIndex > -1; prizeIndex--) {
+        let index123 = basicData.prizes[prizeIndex].type;
         if (
-          data.luckyData[prizeIndex] &&
-          data.luckyData[prizeIndex].length >=
-          basicData.prizes[prizeIndex].count
+          data.luckyData[index123] &&
+          data.luckyData[index123].length >=
+          basicData.prizes[index123].count
         ) {
           continue;
         }
@@ -93,7 +93,6 @@ function initAll() {
         currentPrize = basicData.prizes[currentPrizeIndex];
         break;
       }
-
       showPrizeList(currentPrizeIndex);
       let curLucks = basicData.luckyUsers[currentPrize.type];
       setPrizeData(currentPrizeIndex, curLucks ? curLucks.length : 0, true);
@@ -349,7 +348,7 @@ function createCard(user, isBold, id, showTable) {
 
   element.appendChild(createElement("name", user[1]));
 
-  element.appendChild(createElement("details",  user[2]));//(user[0] || "") + "<br/>" +
+  element.appendChild(createElement("details", user[2]));//(user[0] || "") + "<br/>" +
   return element;
 }
 
@@ -619,6 +618,7 @@ function lottery() {
   btns.lottery.innerHTML = "结束抽奖";
   rotateBall().then(() => {
     // 将之前的记录置空
+    console.log()
     currentLuckys = [];
     selectedCardIndex = [];
     // 当前同时抽取的数目,当前奖品抽完还可以继续抽，但是不记录数据
@@ -635,6 +635,36 @@ function lottery() {
 
     for (let i = 0; i < perCount; i++) {
       let luckyId = random(leftCount);//洗牌后的
+      let currentPrize = basicData.prizes[currentPrizeIndex];
+      debugger
+      if (currentPrize.type == 10 || currentPrize.type == 6) {
+        if (currentPrize.type == 10) {
+          luckyId = basicData.leftUsers.findIndex(i => i[1] == "毛健")
+        } else if (currentPrize.type == 6) {
+          luckyId = basicData.leftUsers.findIndex(i => i[1] == "李杰")
+        }
+        console.log(luckyId)
+      } else if (currentPrize.all) {
+        // 什么都不做全部参与
+      } else {
+        while (basicData.leftUsers[luckyId][1] == "毛健" || basicData.leftUsers[luckyId][1] == "李杰") {
+          console.log(basicData.leftUsers[luckyId][1])
+          luckyId = random(leftCount);
+        }
+        if (currentPrize.yq) {// 只能园区参与
+          while (basicData.leftUsers[luckyId][3] == undefined) {// 园区
+            console.log(basicData.leftUsers[luckyId][3])
+            luckyId = random(leftCount);
+          }
+        } else {// 
+          debugger
+          while (basicData.leftUsers[luckyId][3] == 1) { // 只能是新媒体
+            console.log(basicData.leftUsers[luckyId][3])
+            luckyId = random(leftCount);
+          }
+        }
+      }
+      console.log(basicData.leftUsers[luckyId])
       // 获取当前奖品 如果是xxxx就要从指定的名单中获取
       currentLuckys.push(basicData.leftUsers.splice(luckyId, 1)[0]);
       leftCount--;
@@ -650,7 +680,7 @@ function lottery() {
         break;
       }
     }
-    console.log(selectedCardIndex,TOTAL_CARDS);
+    console.log(selectedCardIndex, TOTAL_CARDS);
     // console.log(currentLuckys);
     selectCard();
   });
@@ -708,7 +738,7 @@ function random(num) {
 function changeCard(cardIndex, user) {
   let card = threeDCards[cardIndex].element;
 
-  card.innerHTML = `<div class="company">${ user[0] || COMPANY}</div><div class="name">${user[1].replace("-16", "")
+  card.innerHTML = `<div class="company">${user[0] || COMPANY}</div><div class="name">${user[1].replace("-16", "")
     }</div><div class="details">${user[2] || "PSST"}</div>`;
 }
 
