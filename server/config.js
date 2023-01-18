@@ -21,13 +21,7 @@ const prizes = [
     text: "IPHONE 14 PRO MAX",
     img: "../img/111.jpg"
   },
-  {
-    type: 1,
-    count: 1,
-    title:"",
-    text: "戴森吸尘器V10",
-    img: "../img/戴森吸尘器.png"
-  },
+  
   {
     type: 2,
     count: 1,
@@ -90,6 +84,13 @@ const prizes = [
     title:"",
     text: "阿迪达斯足球2022卡塔尔世界杯",
     img: "../img/阿迪达斯足球2022卡塔尔世界杯.jpg"
+  },
+  {
+    type: 1,
+    count: 1,
+    title:"",
+    text: "戴森吸尘器V10",
+    img: "../img/戴森吸尘器.png"
   },
   {
     type: 11,

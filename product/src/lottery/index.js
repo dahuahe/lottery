@@ -634,11 +634,12 @@ function lottery() {
     }
 
     for (let i = 0; i < perCount; i++) {
-      let luckyId = random(leftCount);
+      let luckyId = random(leftCount);//洗牌后的
+      // 获取当前奖品 如果是xxxx就要从指定的名单中获取
       currentLuckys.push(basicData.leftUsers.splice(luckyId, 1)[0]);
       leftCount--;
       leftPrizeCount--;
-
+      console.log(luckyId)
       let cardIndex = random(TOTAL_CARDS);
       while (selectedCardIndex.includes(cardIndex)) {
         cardIndex = random(TOTAL_CARDS);
@@ -649,7 +650,7 @@ function lottery() {
         break;
       }
     }
-
+    console.log(selectedCardIndex,TOTAL_CARDS);
     // console.log(currentLuckys);
     selectCard();
   });
