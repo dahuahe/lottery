@@ -16,6 +16,14 @@ const prizes = [
     img: ""
   },
   {
+    type: 999,
+    count: 18,
+    all:true,
+    title: "奖品",
+    text: "奖品",
+    img: "../img/123.jpeg"
+  },
+  {
     type: 777,
     count: 1,
     title: "奖品",
