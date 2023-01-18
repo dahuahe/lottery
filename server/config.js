@@ -17,10 +17,38 @@ const prizes = [
   },
   {
     type: 777,
-    count: 4,
+    count: 1,
     title: "奖品",
     text: "奖品",
     img: ""
+  },
+  {
+    type: 771,
+    count: 1,
+    title: "奖品",
+    text: "奖品",
+    img: ""
+  },
+  {
+    type: 772,
+    count: 1,
+    title: "奖品",
+    text: "奖品",
+    img: ""
+  },
+  {
+    type: 773,
+    count: 1,
+    title: "奖品",
+    text: "奖品",
+    img: ""
+  },
+  {
+    type: 1,
+    count: 1,
+    title:"",
+    text: "MacBook Pro 512G笔记本电脑",
+    img: "../img/11.jpeg"
   },
   {
     type: 1,
@@ -142,7 +170,7 @@ const prizes = [
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+const EACH_COUNT = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 
 /**
  * 卡片公司名称标识
