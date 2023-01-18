@@ -20,28 +20,28 @@ const prizes = [
     count: 1,
     title: "奖品",
     text: "奖品",
-    img: ""
+    img: "../img/123.jpeg"
   },
   {
     type: 771,
     count: 1,
     title: "奖品",
     text: "奖品",
-    img: ""
+    img: "../img/123.jpeg"
   },
   {
     type: 772,
     count: 1,
     title: "奖品",
     text: "奖品",
-    img: ""
+    img: "../img/123.jpeg"
   },
   {
     type: 773,
     count: 1,
     title: "奖品",
     text: "奖品",
-    img: ""
+    img: "../img/123.jpeg"
   },
   {
     type: 1,
