@@ -44,7 +44,7 @@ const prizes = [
     img: "../img/123.jpeg"
   },
   {
-    type: 1,
+    type: 770,
     count: 1,
     title:"",
     text: "MacBook Pro 512G笔记本电脑",
