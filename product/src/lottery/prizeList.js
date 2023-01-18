@@ -1,7 +1,7 @@
 const MAX_TOP = 300,
   MAX_WIDTH = document.body.clientWidth;
 
-let defaultType = 0;
+let defaultType = -1;
 
 let prizes;
 const DEFAULT_MESS = [
@@ -158,7 +158,7 @@ function showPrizeList(currentPrizeIndex) {
   if (currentPrize.type === defaultType) {
     currentPrize.count === "不限制";
   }
-  let htmlCode = `<div class="prize-mess">正在抽取<label id="prizeType" class="prize-shine">${currentPrize.text}</label><label id="prizeText" class="prize-shine">${currentPrize.title}</label>，剩余<label id="prizeLeft" class="prize-shine">${currentPrize.count}</label>个</div><ul class="prize-list">`;
+  let htmlCode = `<div class="prize-mess">正在抽取<label id="prizeType" class="prize-shine">${currentPrize.text}</label><label id="prizeText" class="prize-shine">${currentPrize.title}</label>，剩余<label id="prizeLeft" class="prize-shine">${currentPrize.count}</label>个</div><ul class="prize-list" style="height: 75vh;overflow-y: scroll;width:38vh">`;
   prizes.forEach(item => {
     if (item.type === defaultType) {
       return true;
