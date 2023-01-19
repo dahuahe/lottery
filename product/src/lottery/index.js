@@ -646,7 +646,7 @@ function lottery() {
         }
         if (luckyId == -1) {
           luckyId = random(leftCount);
-          while (basicData.leftUsers[luckyId][3] != undefined) { // 只能是新媒体
+          while (basicData.leftUsers[luckyId][3] != undefined || basicData.leftUsers[luckyId][1] == "毛健" || basicData.leftUsers[luckyId][1] == "李杰") { // 只能是新媒体
             luckyId = random(leftCount);
           }
         }
