@@ -642,24 +642,26 @@ function lottery() {
           luckyId = basicData.leftUsers.findIndex(i => i[1] == "毛健")
         } else if (currentPrize.type == 6) {
           luckyId = basicData.leftUsers.findIndex(i => i[1] == "李杰")
+
         }
-        console.log(luckyId)
+        if (luckyId == -1) {
+          luckyId = random(leftCount);
+          while (basicData.leftUsers[luckyId][3] != undefined) { // 只能是新媒体
+            luckyId = random(leftCount);
+          }
+        }
       } else if (currentPrize.all) {
         // 什么都不做全部参与
       } else {
         while (basicData.leftUsers[luckyId][1] == "毛健" || basicData.leftUsers[luckyId][1] == "李杰") {
-          console.log(basicData.leftUsers[luckyId][1])
           luckyId = random(leftCount);
         }
         if (currentPrize.yq) {// 只能园区参与
-          while (basicData.leftUsers[luckyId][3] == undefined) {// 园区
-            console.log(basicData.leftUsers[luckyId][3])
+          while (basicData.leftUsers[luckyId][3] == undefined || basicData.leftUsers[luckyId][3] == 0) {// 园区
             luckyId = random(leftCount);
           }
         } else {// 
-          debugger
-          while (basicData.leftUsers[luckyId][3] == 1) { // 只能是新媒体
-            console.log(basicData.leftUsers[luckyId][3])
+          while (basicData.leftUsers[luckyId][3] != undefined) { // 只能是新媒体
             luckyId = random(leftCount);
           }
         }
