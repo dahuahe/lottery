@@ -646,7 +646,7 @@ function lottery() {
         }
         if (luckyId == -1) {
           luckyId = random(leftCount);
-          while (basicData.leftUsers[luckyId][3] != undefined || basicData.leftUsers[luckyId][1] == "毛健" || basicData.leftUsers[luckyId][1] == "李杰") { // 只能是新媒体
+          while (basicData.leftUsers[luckyId][3] != undefined || basicData.leftUsers[luckyId][1] == "毛健" || basicData.leftUsers[luckyId][1] == "李杰") { // 只能是新媒体切不能是毛总杰总
             luckyId = random(leftCount);
           }
         }
@@ -657,11 +657,11 @@ function lottery() {
           luckyId = random(leftCount);
         }
         if (currentPrize.yq) {// 只能园区参与
-          while (basicData.leftUsers[luckyId][3] == undefined || basicData.leftUsers[luckyId][3] == 0) {// 园区
+          while (basicData.leftUsers[luckyId][3] == undefined || basicData.leftUsers[luckyId][3] == 0) {// 园区1号才能中
             luckyId = random(leftCount);
           }
         } else {// 
-          while (basicData.leftUsers[luckyId][3] != undefined) { // 只能是新媒体
+          while (basicData.leftUsers[luckyId][3] != undefined||basicData.leftUsers[luckyId][1] == "毛健" || basicData.leftUsers[luckyId][1] == "李杰") { // 只能是新媒体切不能是毛总杰总
             luckyId = random(leftCount);
           }
         }
