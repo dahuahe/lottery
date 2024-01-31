@@ -632,41 +632,22 @@ function lottery() {
       basicData.leftUsers = basicData.users.slice();
       leftCount = basicData.leftUsers.length;
     }
-
+   
     for (let i = 0; i < perCount; i++) {
       let luckyId = random(leftCount);//洗牌后的
       let currentPrize = basicData.prizes[currentPrizeIndex];
-      debugger
-      if (currentPrize.type == 10 || currentPrize.type == 6) {
-        if (currentPrize.type == 10) {
-          luckyId = basicData.leftUsers.findIndex(i => i[1] == "丁勇")
-        } else if (currentPrize.type == 6) {
-          luckyId = basicData.leftUsers.findIndex(i => i[1] == "李杰")
-
-        }
+      console.log("currentPrize.type",currentPrize.type)
+      if (currentPrize.type == "张兰兰" || currentPrize.type == "赵泽超") {//特殊的
+        luckyId = basicData.leftUsers.findIndex(i => i[1] == currentPrize.type)
         if (luckyId == -1) {
           luckyId = random(leftCount);
-          while (basicData.leftUsers[luckyId][3] != undefined || basicData.leftUsers[luckyId][1] == "丁勇" || basicData.leftUsers[luckyId][1] == "李杰") { // 只能是新媒体切不能是毛总杰总
-            luckyId = random(leftCount);
-          }
+          //找不到兜底
         }
-      } else if (currentPrize.all) {
-        // 什么都不做全部参与
-      } else {
-        while (basicData.leftUsers[luckyId][1] == "丁勇" || basicData.leftUsers[luckyId][1] == "李杰") {
+      } else {// 普通的只能普通人参加
+        while (basicData.leftUsers[luckyId][3] != 1) {
           luckyId = random(leftCount);
         }
-        if (currentPrize.yq) {// 只能园区参与
-          while (basicData.leftUsers[luckyId][3] == undefined || basicData.leftUsers[luckyId][3] == 0) {// 园区1号才能中
-            luckyId = random(leftCount);
-          }
-        } else {// 
-          while (basicData.leftUsers[luckyId][3] != undefined||basicData.leftUsers[luckyId][1] == "丁勇" || basicData.leftUsers[luckyId][1] == "李杰") { // 只能是新媒体切不能是毛总杰总
-            luckyId = random(leftCount);
-          }
-        }
       }
-      console.log(basicData.leftUsers[luckyId])
       // 获取当前奖品 如果是xxxx就要从指定的名单中获取
       currentLuckys.push(basicData.leftUsers.splice(luckyId, 1)[0]);
       leftCount--;
@@ -741,7 +722,7 @@ function changeCard(cardIndex, user) {
   let card = threeDCards[cardIndex].element;
 
   card.innerHTML = `<div class="company">${user[0] || COMPANY}</div><div class="name">${user[1].replace("-16", "")
-    }</div><div class="details">${user[2] || "PSST"}</div>`;
+    }</div><div class="details">${user[2] }</div>`;
 }
 
 /**

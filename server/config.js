@@ -7,178 +7,70 @@
  * img: 图片地址
  */
 const prizes = [
-  {
-    type: -1,
-    count: 9999,
-    title: "奖品",
-    text: "奖品",
-    all:true,
+  "哈曼卡顿音响",
+  "现金奖励",
+  "德龙复古咖啡机",
+  "现金奖励",
+  "京东E卡",
+  "现金奖励",
+  "龙年转运金珠",
+  "现金奖励",
+  "转运金豆豆",
+  "现金奖励",
+  "京东E卡",
+  "现金奖励",
+  "转运金豆豆-张兰兰",
+  "现金奖励",
+  "大疆灵眸",
+  "现金奖励",
+  "小米照片打印机",
+  "现金奖励",
+  "京东E卡",
+  "现金奖励",
+  "爱马仕香水身体乳礼盒",
+  "现金奖励",
+  "京东E卡",
+  "现金奖励",
+  "转运金豆豆",
+  "现金奖励",
+  "小米照片打印机",
+  "现金奖励",
+  "转运金豆豆",
+  "京东E卡",
+  "机械键盘",
+  "现金奖励",
+  "转运金豆豆",
+  "现金奖励",
+  "京东E卡",
+  "现金奖励",
+  "机械键盘",
+  "现金奖励",
+  "京东E卡",
+  "现金奖励",
+  "香奈儿coco香水礼盒",
+  "京东E卡",
+  "现金奖励",
+  "转运金豆豆",
+  "现金奖励-赵泽超",
+  "PS5",
+  "奈雪麒麟卡",
+  "奈雪麒麟卡",
+  "奈雪麒麟卡",
+].map((name, index) => {
+  return {
+    type: name.indexOf("-") > -1 ? name.replace(/.*-/ig, "") : index + 1,
+    count: name == "奈雪麒麟卡" ? 10 : 1,
+    title: name.replace(/-.*/ig, ""),
+    text: "",
+    all: true,
     img: ""
-  },
-  {
-    type: 999,
-    count: 18,
-    all:true,
-    title: "奖品",
-    text: "奖品",
-    img: "../img/123.jpeg"
-  },
-  {
-    type: 777,
-    count: 1,
-    title: "奖品",
-    text: "奖品",
-    img: "../img/123.jpeg"
-  },
-  {
-    type: 771,
-    count: 1,
-    title: "奖品",
-    text: "奖品",
-    img: "../img/123.jpeg"
-  },
-  {
-    type: 772,
-    count: 1,
-    title: "奖品",
-    text: "奖品",
-    img: "../img/123.jpeg"
-  },
-  {
-    type: 773,
-    count: 1,
-    title: "奖品",
-    text: "奖品",
-    img: "../img/123.jpeg"
-  },
-  {
-    type: 770,
-    count: 1,
-    title:"",
-    text: "MacBook Pro 512G笔记本电脑",
-    img: "../img/11.jpeg"
-  },
-  {
-    type: 1,
-    count: 1,
-    title:"",
-    yq:true,
-    text: "戴森吸尘器V10",
-    img: "../img/戴森吸尘器.png"
-  },
-  {
-    type: 2,
-    count: 1,
-    title:"",
-    text: "考勤补补卡",
-    img: "../img/考勤补补卡1.jpg"
-  },
-  {
-    type: 3,
-    count: 1,
-    title:"",
-    text: "雅马哈吉他FS100C",
-    img: "../img/雅马哈吉他FS100C.jpg"
-  },
-  {
-    type: 4,
-    count: 1,
-    title:"",
-    text: "微软游戏机Xbox Series S",
-    img: "../img/微软游戏机Xbox Series S.jpg"
-  },
-  
-  {
-    type: 6,
-    count: 1,
-    title:"",
-    text: "MAC口红31#316",
-    img: "../img/MAC口红31.jpg"
-  },
-  {
-    type: 654,
-    count: 1,
-    title: "",
-    yq:true,
-    text: "IPHONE 14 PRO MAX",
-    img: "../img/111.jpg"
-  },
-  {
-    type: 7,
-    count: 1,
-    title:"",
-    text: "华为智能手表",
-    img: "../img/华为智能手表.jpg"
-  },
-  {
-    type: 5,
-    count: 1,
-    title:"",
-    text: "星特朗天文望远镜80DX",
-    img: "../img/星特朗天文望远镜80DX.jpg"
-  },
-  {
-    type: 8,
-    count: 1,
-    title: "",
-    text: "考勤补补卡",
-    img: "../img/考勤补补卡1.jpg"
-  },
-  {
-    type: 9,
-    count: 1,
-    title:"",
-    text: "柏翠咖啡机",
-    img: "../img/柏翠咖啡机.jpg"
-  },
-  {
-    type: 10,// 毛总必中
-    count: 1,
-    title:"",
-    text: "阿迪达斯足球2022卡塔尔世界杯",
-    img: "../img/阿迪达斯足球2022卡塔尔世界杯.jpg"
-  },
-  {
-    type: 11,
-    count: 1,
-    title:"",
-    text: "富安娜长绒棉四件套",
-    img: "../img/富安娜长绒棉四件套.jpg"
-  },
-  {
-    type: 13,
-    count: 1,
-    title:"",
-    text: "索尼蓝牙音响SRS-XB23",
-    img: "../img/索尼蓝牙音响SRS-XB23.png"
-  },
-  {
-    type: 14,
-    count: 1,
-    title:"",
-    text: "COCO-MAT乳胶枕护颈枕",
-    img: "../img/COCO-MAT乳胶枕护颈枕.jpg"
-  },
-  {
-    type: 15,
-    count: 1,
-    text: "奖品考勤补补卡",
-    title: "",
-    img: "../img/考勤补补卡1.jpg"
-  },
-  {
-    type: 16,
-    count: 1,
-    text: "奖品索密斯多功能早餐机",
-    title: "",
-    img: "../img/索密斯多功能早餐机.png"
   }
-];
+}).reverse();
 
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+const EACH_COUNT = prizes.map(i => i.count);
 
 /**
  * 卡片公司名称标识

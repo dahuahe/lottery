@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const chokidar = require("chokidar");
 const cfg = require("./config");
-
+console.log(cfg,"cfg")
 const {
   loadXML,
   loadTempData,
@@ -67,6 +67,7 @@ app.post("*", (req, res, next) => {
 // 获取之前设置的数据
 router.post("/getTempData", (req, res, next) => {
   getLeftUsers();
+  console.log("cfg",cfg)
   res.json({
     cfgData: cfg,
     leftUsers: curData.leftUsers,
@@ -204,7 +205,6 @@ function setErrorData(data) {
 app.use(router);
 
 function loadData() {
-  console.log("加载EXCEL数据文件");
   let cfgData = {};
 
   // curData.users = loadXML(path.join(cwd, "data/users.xlsx"));

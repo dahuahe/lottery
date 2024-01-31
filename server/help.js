@@ -45,7 +45,6 @@ function loadTempData() {
 function loadXML(xmlPath) {
   let userData = xlsx.parse(xmlPath);
   let outData = [];
-  console.log(userData)
   userData.forEach(item => {
     outData = item.data;
     outData.shift();
